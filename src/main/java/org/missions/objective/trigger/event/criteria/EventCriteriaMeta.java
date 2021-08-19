@@ -1,12 +1,12 @@
 package org.missions.objective.trigger.event.criteria;
 
 import org.jetbrains.annotations.NotNull;
-import org.spongepowered.api.item.inventory.ItemStack;
 
-public interface EventCriteriaMeta<EC extends EventCriteria> {
+public interface EventCriteriaMeta<EC extends EventCriteria, EO> {
 
     @NotNull EC getCriteria();
 
+    boolean isCriteriaMet(EO eventObject);
 
 
 }

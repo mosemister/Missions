@@ -4,15 +4,16 @@ import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.jetbrains.annotations.NotNull;
 import org.missions.objective.trigger.event.criteria.EventCriteriaMeta;
 import org.missions.objective.trigger.event.criteria.EventsCriteria;
+import org.spongepowered.api.data.DataHolder;
 import org.spongepowered.api.data.Keys;
-import org.spongepowered.api.data.SerializableDataHolder;
 
-public class ItemNameMatchesEventMeta implements EventCriteriaMeta<ItemNameMatchesEventCriteria> {
+public class DisplayNameMatchesEventMeta implements EventCriteriaMeta<DisplayNameMatchesEventCriteria, DataHolder> {
 
     private String nameToMatch;
     private boolean ignoreCase;
 
-    public boolean isCriteriaMet(SerializableDataHolder stack) {
+    @Override
+    public boolean isCriteriaMet(DataHolder stack) {
         return stack.get(Keys.DISPLAY_NAME).map(component -> {
             String plain = PlainTextComponentSerializer.plainText().serialize(component);
             if (this.ignoreCase) {
@@ -27,7 +28,7 @@ public class ItemNameMatchesEventMeta implements EventCriteriaMeta<ItemNameMatch
         return this.ignoreCase;
     }
 
-    public ItemNameMatchesEventMeta setIgnoringCase(boolean check) {
+    public DisplayNameMatchesEventMeta setIgnoringCase(boolean check) {
         this.ignoreCase = check;
         return this;
     }
@@ -36,13 +37,13 @@ public class ItemNameMatchesEventMeta implements EventCriteriaMeta<ItemNameMatch
         return nameToMatch;
     }
 
-    public ItemNameMatchesEventMeta setNameToMatch(String nameToMatch) {
+    public DisplayNameMatchesEventMeta setNameToMatch(@NotNull String nameToMatch) {
         this.nameToMatch = nameToMatch;
         return this;
     }
 
     @Override
-    public @NotNull ItemNameMatchesEventCriteria getCriteria() {
+    public @NotNull DisplayNameMatchesEventCriteria getCriteria() {
         return EventsCriteria.ITEM_NAME_MATCHES;
     }
 }

@@ -1,8 +1,8 @@
 package org.missions.objective.trigger.event.criteria;
 
-import org.missions.objective.trigger.event.criteria.match.displayname.ItemNameMatchesEventCriteria;
+import org.missions.objective.trigger.event.criteria.match.displayname.DisplayNameMatchesEventCriteria;
 
 public interface EventsCriteria {
 
-    ItemNameMatchesEventCriteria ITEM_NAME_MATCHES = new ItemNameMatchesEventCriteria();
+    DisplayNameMatchesEventCriteria ITEM_NAME_MATCHES = new DisplayNameMatchesEventCriteria();
 }

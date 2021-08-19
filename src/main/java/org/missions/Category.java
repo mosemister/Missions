@@ -1,14 +1,18 @@
 package org.missions;
 
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.plugin.PluginContainer;
 
+/**
+ * Anything that should have a ID, should implement Category
+ */
 public interface Category {
 
-    String getName();
+    @NotNull String getName();
 
-    PluginContainer getPlugin();
+    @NotNull PluginContainer getPlugin();
 
-    default String getId() {
+    default @NotNull String getId() {
         return getPlugin().metadata().id() + ":" + getName().toLowerCase().replace(" ", "_");
     }
 }
