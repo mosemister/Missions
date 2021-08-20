@@ -17,13 +17,16 @@ import org.spongepowered.plugin.PluginContainer;
 
 import java.util.Optional;
 
+/**
+ * Action type for spawning a block in a specific location within the world
+ */
 public class SpawnBlockActionType implements BlockActionType {
 
-    private Object[] NODE_BLOCK_STATE = {"block"};
-    private Object[] NODE_LOCATION_WORLD = {"location", "world"};
-    private Object[] NODE_LOCATION_X = {"location", "x"};
-    private Object[] NODE_LOCATION_Y = {"location", "y"};
-    private Object[] NODE_LOCATION_Z = {"location", "z"};
+    private final Object[] NODE_BLOCK_STATE = {"block"};
+    private final Object[] NODE_LOCATION_WORLD = {"location", "world"};
+    private final Object[] NODE_LOCATION_X = {"location", "x"};
+    private final Object[] NODE_LOCATION_Y = {"location", "y"};
+    private final Object[] NODE_LOCATION_Z = {"location", "z"};
 
     @Override
     public @NotNull String getName() {

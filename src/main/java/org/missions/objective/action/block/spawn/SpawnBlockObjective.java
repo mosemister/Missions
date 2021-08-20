@@ -24,14 +24,15 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
     private final @NotNull BlockState block;
     private boolean complete;
 
-    public SpawnBlockObjective(SpawnBlockObjective objective) {
+    protected SpawnBlockObjective(SpawnBlockObjective objective) {
         super(objective);
         this.location = objective.location;
         this.world = objective.world;
         this.block = objective.block.copy();
+        this.complete = objective.complete;
     }
 
-    public SpawnBlockObjective(SpawnBlockObjectiveBuilder builder) {
+    SpawnBlockObjective(SpawnBlockObjectiveBuilder builder) {
         super(builder);
         if (builder.getBlock() == null) {
             throw new IllegalArgumentException("Block must be set");
@@ -61,6 +62,7 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
 
     /**
      * Gets the vector location of the block to set
+     *
      * @return The XYZ of the block location
      */
     public @NotNull Vector3i getLocation() {
@@ -69,6 +71,7 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
 
     /**
      * Gets the resource key of the world, @see{@link Optional#empty()} if client is being used
+     *
      * @return Gets the resource key
      */
     public @NotNull Optional<ResourceKey> getWorldKey() {
@@ -77,6 +80,7 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
 
     /**
      * Gets or loads the world, @see{@link Optional#empty()} if the client is being used and not loaded into a world
+     *
      * @param <W> The world type
      * @param <L> The location type
      * @return The World to use
@@ -103,6 +107,7 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
 
     /**
      * Gets the block to set
+     *
      * @return The BlockState to set
      */
     public @NotNull BlockState getBlock() {

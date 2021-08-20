@@ -17,6 +17,11 @@ public abstract class Objective<O extends ObjectiveType> {
     private final @Nullable Objective<?> parent;
     private final @NotNull Set<Objective<?>> children = new HashSet<>();
 
+    /**
+     * This will deep copy the objective. use {@link #copy()} for use outside of class
+     *
+     * @param objective The objective to copy
+     */
     public Objective(Objective<O> objective) {
         this.type = objective.type;
         this.name = objective.name;
@@ -27,6 +32,11 @@ public abstract class Objective<O extends ObjectiveType> {
 
     }
 
+    /**
+     * This will create the objective from the builder. Use {@link ObjectiveBuilder#build()} for use outside of class
+     *
+     * @param builder The builder to use
+     */
     public Objective(ObjectiveBuilder<O> builder) {
         if (builder.getType() == null) {
             throw new IllegalArgumentException("Builder must specify a type");

@@ -9,8 +9,21 @@ import org.missions.objective.trigger.event.EventTriggerType;
  */
 public interface ObjectiveTypes {
 
+    /**
+     * Used when a event occurs
+     *
+     * @deprecated Will be replaced with more specific events soon
+     */
+    @Deprecated
     EventTriggerType EVENT_TRIGGER = new EventTriggerType();
+
+    /**
+     * Action for spawning a block
+     */
     SpawnBlockActionType SPAWN_BLOCK_ACTION = new SpawnBlockActionType();
 
+    /**
+     * Operation for checking all linked objectives are complete
+     */
     MatchAllOperationType MATCH_ALL_OPERATION = new MatchAllOperationType();
 }
