@@ -11,5 +11,9 @@ public abstract class OperationObjective<O extends OperationType> extends Object
         super(builder);
     }
 
+    public OperationObjective(Objective<O> objective) {
+        super(objective);
+    }
+
     public abstract Collection<Objective<?>> getLinkedObjectives();
 }

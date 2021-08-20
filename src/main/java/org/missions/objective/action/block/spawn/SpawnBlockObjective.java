@@ -20,6 +20,13 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
     private final @NotNull BlockState block;
     private boolean complete;
 
+    public SpawnBlockObjective(SpawnBlockObjective objective) {
+        super(objective);
+        this.location = objective.location;
+        this.world = objective.world;
+        this.block = objective.block.copy();
+    }
+
     public SpawnBlockObjective(SpawnBlockObjectiveBuilder builder) {
         super(builder);
         if (builder.getBlock() == null) {
@@ -41,6 +48,11 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
     @Override
     public boolean isComplete() {
         return this.complete;
+    }
+
+    @Override
+    public SpawnBlockObjective copy() {
+        return new SpawnBlockObjective(this);
     }
 
     public @NotNull Vector3i getLocation() {

@@ -12,6 +12,11 @@ public class MatchAllOperation extends OperationObjective<MatchAllOperationType>
 
     private final Set<Objective<?>> linkedObjectives = new HashSet<>();
 
+    public MatchAllOperation(MatchAllOperation objective) {
+        super(objective);
+        this.linkedObjectives.addAll(objective.linkedObjectives);
+    }
+
     public MatchAllOperation(MatchAllOperationBuilder builder) {
         super(builder);
         this.linkedObjectives.addAll(builder.getLinkedObjectives());
@@ -20,6 +25,11 @@ public class MatchAllOperation extends OperationObjective<MatchAllOperationType>
     @Override
     public boolean isComplete() {
         return linkedObjectives.stream().allMatch(Objective::isComplete);
+    }
+
+    @Override
+    public MatchAllOperation copy() {
+        return new MatchAllOperation(this);
     }
 
     @Override

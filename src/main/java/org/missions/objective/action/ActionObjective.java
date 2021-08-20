@@ -8,4 +8,8 @@ public abstract class ActionObjective<O extends ActionType> extends Objective<O>
     public ActionObjective(ObjectiveBuilder<O> builder) {
         super(builder);
     }
+
+    public ActionObjective(Objective<O> builder) {
+        super(builder);
+    }
 }

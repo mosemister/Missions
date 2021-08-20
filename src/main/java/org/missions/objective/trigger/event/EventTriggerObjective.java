@@ -26,4 +26,10 @@ public class EventTriggerObjective<E extends Event, ET extends EventType<E>> ext
         //TODO
         throw new RuntimeException("Not implemented yet");
     }
+
+    @Override
+    public Objective<EventTriggerType> copy() {
+        //TODO
+        throw new RuntimeException("Not implemented yet");
+    }
 }
