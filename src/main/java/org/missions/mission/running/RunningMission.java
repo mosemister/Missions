@@ -9,6 +9,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+/**
+ * Gets the class where a mission is running is held.
+ *
+ */
 public class RunningMission {
 
     private final Mission mission;

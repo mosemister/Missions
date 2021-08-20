@@ -13,6 +13,10 @@ import org.spongepowered.math.vector.Vector3i;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * The SpawnBlockObjective is a Action which will spawn a block within the specified world
+ * then mark itself complete.
+ */
 public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
 
     private final @NotNull Vector3i location;
@@ -55,14 +59,28 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
         return new SpawnBlockObjective(this);
     }
 
+    /**
+     * Gets the vector location of the block to set
+     * @return The XYZ of the block location
+     */
     public @NotNull Vector3i getLocation() {
         return location;
     }
 
+    /**
+     * Gets the resource key of the world, @see{@link Optional#empty()} if client is being used
+     * @return Gets the resource key
+     */
     public @NotNull Optional<ResourceKey> getWorldKey() {
         return Optional.ofNullable(this.world);
     }
 
+    /**
+     * Gets or loads the world, @see{@link Optional#empty()} if the client is being used and not loaded into a world
+     * @param <W> The world type
+     * @param <L> The location type
+     * @return The World to use
+     */
     public <W extends World<W, L>, L extends Location<W, L>> @NotNull Optional<W> getWorld() {
         return this
                 .getWorldKey()
@@ -83,6 +101,10 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
                 });
     }
 
+    /**
+     * Gets the block to set
+     * @return The BlockState to set
+     */
     public @NotNull BlockState getBlock() {
         return block;
     }

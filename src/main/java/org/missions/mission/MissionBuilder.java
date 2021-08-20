@@ -9,16 +9,47 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The class used to build Missions.
+ */
 public interface MissionBuilder {
 
-    String getName();
+    /**
+     * Gets the name of the mission, this will be null if no name has been set
+     *
+     * @return The name of the mission
+     */
+    @Nullable String getName();
 
+    /**
+     * Sets the name of the mission
+     *
+     * @param name The new name of the mission
+     * @return this builder, for chaining
+     */
     @NotNull MissionBuilder setName(@NotNull String name);
 
+    /**
+     * Gets the root objective, this will be null if none has been set
+     *
+     * @return The root objective
+     */
     @Nullable Objective<?> getRootObjective();
 
-    @NotNull MissionBuilder setRootObjective(Objective<?> objective);
+    /**
+     * Sets the root objective of the mission
+     *
+     * @param objective The root objective
+     * @return this builder, for chaining
+     */
+    @NotNull MissionBuilder setRootObjective(@NotNull Objective<?> objective);
 
+    /**
+     * Gets all objectives found within the specified objective
+     *
+     * @return All the objectives found within the specified objective,
+     * returns {@link Collections#emptyList()} if no objective is set
+     */
     default @NotNull List<Objective<?>> getObjectives() {
         @Nullable Objective<?> root = this.getRootObjective();
         if (root == null) {

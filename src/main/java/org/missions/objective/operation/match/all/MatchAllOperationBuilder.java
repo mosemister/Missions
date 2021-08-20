@@ -15,14 +15,14 @@ import java.util.Set;
 
 public class MatchAllOperationBuilder extends ObjectiveBuilder<MatchAllOperationType> {
 
-    protected final @NotNull Set<Objective<?>> linkedObjectives = new HashSet<>();
+    private final @NotNull Set<Objective<?>> linkedObjectives = new HashSet<>();
 
     public @NotNull Set<Objective<?>> getLinkedObjectives() {
         return this.linkedObjectives;
     }
 
     @Deprecated
-    public MatchAllOperationBuilder addLink() {
+    public @NotNull MatchAllOperationBuilder addLink() {
         throw new RuntimeException("Must add at least one link");
     }
 
@@ -47,17 +47,17 @@ public class MatchAllOperationBuilder extends ObjectiveBuilder<MatchAllOperation
     }
 
     @Override
-    public MatchAllOperationBuilder setName(@NotNull String name) {
+    public @NotNull MatchAllOperationBuilder setName(@NotNull String name) {
         return (MatchAllOperationBuilder) super.setName(name);
     }
 
     @Override
-    public MatchAllOperationBuilder setParent(@Nullable Objective<?> parent) {
+    public @NotNull MatchAllOperationBuilder setParent(@Nullable Objective<?> parent) {
         return (MatchAllOperationBuilder) super.setParent(parent);
     }
 
     @Override
-    public MatchAllOperationBuilder fromNode(@NotNull ConfigurationNode node, @NotNull MissionBuilder builder) {
+    public @NotNull MatchAllOperationBuilder fromNode(@NotNull ConfigurationNode node, @NotNull MissionBuilder builder) {
         return (MatchAllOperationBuilder) super.fromNode(node, builder);
     }
 }

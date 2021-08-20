@@ -8,8 +8,7 @@ import java.util.*;
 /**
  * Base class for all objectives. A Objective is a node within a missiion,
  *
- * @param <O> The linked type to this objective
- * @see{@link ObjectiveType} for more information
+ * @param <O> The linked type to this objective see {@link ObjectiveType} for more information
  */
 public abstract class Objective<O extends ObjectiveType> {
 

@@ -16,17 +16,31 @@ import org.spongepowered.math.vector.Vector3i;
 
 import java.util.Optional;
 
+/**
+ * The builder for the {@link SpawnBlockObjective}
+ */
 public class SpawnBlockObjectiveBuilder extends ObjectiveBuilder<SpawnBlockActionType> {
 
-    protected Vector3i location;
-    protected ResourceKey world;
-    protected BlockState block;
+    private Vector3i location;
+    private ResourceKey world;
+    private BlockState block;
 
-    public Vector3i getLocation() {
+    /**
+     * Gets the vector of the location to spawn the block
+     *
+     * @return A Vector3i of the block location
+     */
+    public @Nullable Vector3i getLocation() {
         return this.location;
     }
 
-    public SpawnBlockObjectiveBuilder setLocation(@NotNull Location<? extends World<?, ?>, ?> location) {
+    /**
+     * Sets the vector and world from the location
+     *
+     * @param location the location to use
+     * @return this builder, for chaining
+     */
+    public @NotNull SpawnBlockObjectiveBuilder setLocation(@NotNull Location<? extends World<?, ?>, ?> location) {
         this.location = location.blockPosition();
         if (location.world() instanceof ServerWorld) {
             this.world = ((ServerWorld) location.world()).key();
@@ -34,24 +48,52 @@ public class SpawnBlockObjectiveBuilder extends ObjectiveBuilder<SpawnBlockActio
         return this;
     }
 
-    public SpawnBlockObjectiveBuilder setLocation(@NotNull Vector3i position) {
+    /**
+     * Sets the vector of the block location
+     *
+     * @param position The vector to use
+     * @return this builder, for chaining
+     */
+    public @NotNull SpawnBlockObjectiveBuilder setLocation(@NotNull Vector3i position) {
         this.location = position;
         return this;
     }
 
-    public Optional<ResourceKey> getWorld() {
+    /**
+     * Gets the world to use, this will be {@link Optional#empty()} if the Client is being used
+     *
+     * @return Gets the world resource key
+     */
+    public @NotNull Optional<ResourceKey> getWorld() {
         return Optional.ofNullable(this.world);
     }
 
-    public SpawnBlockObjectiveBuilder setWorld(@Nullable ResourceKey key) {
+    /**
+     * Sets the world's resource key to use (client should be null)
+     *
+     * @param key The world key
+     * @return this builder, for chaining
+     */
+    public @NotNull SpawnBlockObjectiveBuilder setWorld(@Nullable ResourceKey key) {
         this.world = key;
         return this;
     }
 
+    /**
+     * Gets the block to set, null if not set
+     *
+     * @return gets the blockState
+     */
     public BlockState getBlock() {
         return block;
     }
 
+    /**
+     * sets the blockstate
+     *
+     * @param block the block to set
+     * @return this builder, for chaining
+     */
     public SpawnBlockObjectiveBuilder setBlock(@NotNull BlockState block) {
         this.block = block;
         return this;
@@ -68,17 +110,17 @@ public class SpawnBlockObjectiveBuilder extends ObjectiveBuilder<SpawnBlockActio
     }
 
     @Override
-    public SpawnBlockObjectiveBuilder setName(@NotNull String name) {
+    public @NotNull SpawnBlockObjectiveBuilder setName(@NotNull String name) {
         return (SpawnBlockObjectiveBuilder) super.setName(name);
     }
 
     @Override
-    public SpawnBlockObjectiveBuilder setParent(@Nullable Objective<?> parent) {
+    public @NotNull SpawnBlockObjectiveBuilder setParent(@Nullable Objective<?> parent) {
         return (SpawnBlockObjectiveBuilder) super.setParent(parent);
     }
 
     @Override
-    public SpawnBlockObjectiveBuilder fromNode(@NotNull ConfigurationNode node, @NotNull MissionBuilder builder) {
+    public @NotNull SpawnBlockObjectiveBuilder fromNode(@NotNull ConfigurationNode node, @NotNull MissionBuilder builder) {
         return (SpawnBlockObjectiveBuilder) super.fromNode(node, builder);
     }
 }
