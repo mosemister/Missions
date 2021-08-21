@@ -75,6 +75,6 @@ public class DisplayNameMatchesEventMeta implements EventCriteriaMeta<DisplayNam
      */
     @Override
     public @NotNull DisplayNameMatchesEventCriteria getCriteria() {
-        return EventsCriteria.ITEM_NAME_MATCHES;
+        return EventsCriteria.DISPLAY_NAME_MATCHES;
     }
 }
