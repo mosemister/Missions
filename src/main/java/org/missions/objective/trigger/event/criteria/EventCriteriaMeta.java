@@ -28,4 +28,5 @@ public interface EventCriteriaMeta<EC extends EventCriteria, EO> {
     boolean isCriteriaMet(EO eventObject);
 
 
+
 }
