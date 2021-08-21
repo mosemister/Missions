@@ -53,6 +53,11 @@ public abstract class Objective<O extends ObjectiveType> {
         }
     }
 
+    /**
+     * checks if the objective is complete
+     *
+     * @return boolean value for if the objective is complete
+     */
     public abstract boolean isComplete();
 
     /**
@@ -98,5 +103,10 @@ public abstract class Objective<O extends ObjectiveType> {
         return Collections.unmodifiableCollection(this.children);
     }
 
+    /**
+     * Deep copies this objective, this will be the same class type
+     *
+     * @return the new objective
+     */
     public abstract Objective<O> copy();
 }

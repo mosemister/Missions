@@ -69,4 +69,13 @@ public interface MissionBuilder {
         }
         return ret;
     }
+
+    /**
+     * Method to call when the builder is ready to build a mission.
+     *
+     * @return The mission that is created
+     */
+    default Mission build() {
+        return new Mission(this);
+    }
 }

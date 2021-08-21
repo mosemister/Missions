@@ -12,6 +12,9 @@ import org.spongepowered.configurate.ConfigurationNode;
 import org.spongepowered.configurate.serialize.SerializationException;
 import org.spongepowered.plugin.PluginContainer;
 
+/**
+ * The objective for all events. This will complete when the event is fired and where all the criteria is met
+ */
 public class EventTriggerType implements TriggerType {
 
     @Override

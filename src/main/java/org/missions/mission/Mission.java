@@ -12,6 +12,9 @@ public class Mission {
     private final @NotNull String name;
     private final @NotNull Objective<?> objective;
 
+    /**
+     * @param builder The builder to build the mission, use {@link MissionBuilder#build()}
+     */
     public Mission(MissionBuilder builder) {
         if (builder.getRootObjective() == null) {
             throw new IllegalArgumentException("Root objective must be specified");

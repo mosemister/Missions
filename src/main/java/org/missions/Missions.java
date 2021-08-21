@@ -18,6 +18,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * The main class to boot the Sponge plugins
+ */
 @Plugin("mission")
 public class Missions {
 

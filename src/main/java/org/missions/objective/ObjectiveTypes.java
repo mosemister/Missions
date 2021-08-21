@@ -11,10 +11,7 @@ public interface ObjectiveTypes {
 
     /**
      * Used when a event occurs
-     *
-     * @deprecated Will be replaced with more specific events soon
      */
-    @Deprecated
     EventTriggerType EVENT_TRIGGER = new EventTriggerType();
 
     /**

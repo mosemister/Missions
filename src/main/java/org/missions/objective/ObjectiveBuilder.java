@@ -16,8 +16,8 @@ import java.util.Optional;
  */
 public abstract class ObjectiveBuilder<O extends ObjectiveType> {
 
-    protected String name;
-    protected Objective<?> parent;
+    private String name;
+    private Objective<?> parent;
 
     private static final Object[] NODE_NAME = {"Name"};
     private static final Object[] NODE_PARENT = {"Parent"};
@@ -80,7 +80,8 @@ public abstract class ObjectiveBuilder<O extends ObjectiveType> {
     /**
      * Gets the basic information from the specified configuration node
      *
-     * @param node the node holding the data
+     * @param node    the node holding the data
+     * @param builder The mission builder, designed to help parsing
      * @return the builder, for chaining
      * @throws IllegalArgumentException Node does not contain either name or parent
      * @throws IllegalStateException    The parent objective is not contained within the MissionBuilder

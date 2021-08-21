@@ -24,6 +24,9 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
     private final @NotNull BlockState block;
     private boolean complete;
 
+    /**
+     * {@inheritDoc}
+     */
     protected SpawnBlockObjective(SpawnBlockObjective objective) {
         super(objective);
         this.location = objective.location;
@@ -32,6 +35,9 @@ public class SpawnBlockObjective extends ActionObjective<SpawnBlockActionType> {
         this.complete = objective.complete;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     SpawnBlockObjective(SpawnBlockObjectiveBuilder builder) {
         super(builder);
         if (builder.getBlock() == null) {

@@ -7,6 +7,10 @@ import org.missions.objective.trigger.event.criteria.EventsCriteria;
 import org.spongepowered.api.data.DataHolder;
 import org.spongepowered.api.data.Keys;
 
+/**
+ * Criteria for matching a {@link org.spongepowered.api.data.Key} of {@link Keys#DISPLAY_NAME} with the provided
+ * information.
+ */
 public class DisplayNameMatchesEventMeta implements EventCriteriaMeta<DisplayNameMatchesEventCriteria, DataHolder> {
 
     private String nameToMatch;
@@ -24,24 +28,51 @@ public class DisplayNameMatchesEventMeta implements EventCriteriaMeta<DisplayNam
         }).orElse(false);
     }
 
+    /**
+     * Checks if the name is to ignore the character case
+     *
+     * @return if the meta is ignoring the case
+     */
     public boolean isIgnoringCase() {
         return this.ignoreCase;
     }
 
+    /**
+     * Sets if the check should ignore the character case
+     *
+     * @param check if it should ignore case
+     * @return this, for chaining
+     */
     public DisplayNameMatchesEventMeta setIgnoringCase(boolean check) {
         this.ignoreCase = check;
         return this;
     }
 
+    /**
+     * Gets the text to compare against
+     *
+     * @return The string text to compare against, null if not set
+     */
     public String getNameToMatch() {
         return nameToMatch;
     }
 
+    /**
+     * Sets the text to compare
+     *
+     * @param nameToMatch the string text to compare against
+     * @return this, for chaining
+     */
     public DisplayNameMatchesEventMeta setNameToMatch(@NotNull String nameToMatch) {
         this.nameToMatch = nameToMatch;
         return this;
     }
 
+    /**
+     * Gets the Criteria for this meta
+     *
+     * @return the Criteria type
+     */
     @Override
     public @NotNull DisplayNameMatchesEventCriteria getCriteria() {
         return EventsCriteria.ITEM_NAME_MATCHES;

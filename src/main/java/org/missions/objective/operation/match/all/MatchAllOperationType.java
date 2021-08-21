@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * This will complete if all the linked objected are complete
+ */
 public class MatchAllOperationType implements OperationType {
 
     private final Object[] NODE_LINKED_OBJECTIVES = {"Linked"};

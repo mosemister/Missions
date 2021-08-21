@@ -44,14 +44,19 @@ public interface ObjectiveType extends Category {
      * @param node      The node that you wish to save to
      * @param objective The objective you wish to save
      * @throws IllegalArgumentException If a unsupported objective is supplied
+     * @throws SerializationException   Thrown if setting a object cannot be set
+     * @throws ParseException           Thrown if the objective cannot be parsed into a serializable object
      */
     void serialize(@NotNull ConfigurationNode node, @NotNull Objective<?> objective) throws SerializationException, ParseException, IllegalArgumentException;
 
     /**
      * The ability to load a objective of this type
      *
-     * @param node The node that you wish to load from
+     * @param node    The node that you wish to load from
+     * @param builder The missionBuilder to insert this objective into eventually
      * @return A objective of this type with all values accounted for
+     * @throws SerializationException Thrown if getting a object cannot be retrieved the node, or child of the node
+     * @throws ParseException         Thrown if all config values could be received, but couldn't be parsed
      */
     @NotNull Objective<?> deserialize(@NotNull ConfigurationNode node, @NotNull MissionBuilder builder) throws SerializationException, ParseException;
 
